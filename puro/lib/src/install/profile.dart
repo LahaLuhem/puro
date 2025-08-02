@@ -148,7 +148,7 @@ Future<File?> installProfileEnv({
   final List<String> lines = [
     for (final path in config.desiredEnvPaths)
       if (isFish)
-        'set --export PATH \$PATH ${path.replaceAll(home, '\$HOME')}'
+        'fish_add_path ${path.replaceAll(home, '\$HOME')}'
       else
         'export PATH="\$PATH:${path.replaceAll(home, '\$HOME')}"',
     if (isFish)
